@@ -4,51 +4,66 @@ const mensajeCaja = document.querySelector(".mensaje-caja");
 const informacionCaja = document.querySelector(".informacion-caja");
 const mensajeImagen = document.querySelector(".mensaje-imagen");
 
+// Función para validar que el texto no contenga caracteres especiales ni acentos
+function validarTexto(texto) {
+    // Expresión regular para permitir solo letras y espacios (sin acentos ni caracteres especiales)
+    const regex = /^[A-Za-z\s]*$/;
+    return regex.test(texto);
+}
+
 function botonEncriptar() {
-    const texto = textArea.value;
+    let textoOriginal = textArea.value.trim(); // Elimina espacios extra
 
-    if (validarTexto(texto)) {
-        const textoEncriptado = encriptar(texto);
-        mensaje.value = textoEncriptado;
-        textArea.value = "";
+    // Validar texto antes de convertir a minúsculas
+    if (!validarTexto(textoOriginal)) {
+        alert("El texto debe contener solo letras y espacios, sin acentos ni caracteres especiales.");
+        return;
+    }
 
-        // Mostrar el contenido encriptado y ocultar imagen y mensajes si hay texto
-        if (textoEncriptado) {
-            mensajeCaja.classList.remove("hidden");
-            informacionCaja.style.display = "none";
-            mensajeImagen.style.display = "none";
-            document.querySelector(".boton-copiar").classList.remove("hidden"); 
-        } else {
-            mensajeCaja.classList.add("hidden");
-            informacionCaja.style.display = "block";
-            mensajeImagen.style.display = "block";
-            document.querySelector(".boton-copiar").classList.add("hidden"); 
-        }
+    // Convertir a minúsculas
+    let textoEnMinúsculas = textoOriginal.toLowerCase();
+
+    const textoEncriptado = encriptar(textoEnMinúsculas);
+    mensaje.value = textoEncriptado;
+    textArea.value = "";
+
+    if (textoEncriptado) {
+        mensajeCaja.classList.remove("hidden");
+        informacionCaja.style.display = "none";
+        mensajeImagen.style.display = "none";
+        document.querySelector(".boton-copiar").classList.remove("hidden");
     } else {
-        alert("El texto debe contener solo letras minúsculas y espacios.");
+        mensajeCaja.classList.add("hidden");
+        informacionCaja.style.display = "block";
+        mensajeImagen.style.display = "block";
+        document.querySelector(".boton-copiar").classList.add("hidden");
     }
 }
 
 function botonDesencriptar() {
-    const texto = textArea.value;
+    let textoOriginal = textArea.value.trim(); // Elimina espacios extra
 
-    if (validarTexto(texto)) {
-        const textoDesencriptado = desencriptar(texto);
-        mensaje.value = textoDesencriptado;
-        textArea.value = "";
+    // Validar texto antes de convertir a minúsculas
+    if (!validarTexto(textoOriginal)) {
+        alert("El texto debe contener solo letras y espacios, sin acentos ni caracteres especiales.");
+        return;
+    }
 
-        // Mostrar el contenido desencriptado y ocultar imagen y mensajes si hay texto
-        if (textoDesencriptado) {
-            mensajeCaja.classList.remove("hidden");
-            informacionCaja.style.display = "none";
-            mensajeImagen.style.display = "none";
-        } else {
-            mensajeCaja.classList.add("hidden");
-            informacionCaja.style.display = "block";
-            mensajeImagen.style.display = "block";
-        }
+    // Convertir a minúsculas
+    let textoEnMinúsculas = textoOriginal.toLowerCase();
+
+    const textoDesencriptado = desencriptar(textoEnMinúsculas);
+    mensaje.value = textoDesencriptado;
+    textArea.value = "";
+
+    if (textoDesencriptado) {
+        mensajeCaja.classList.remove("hidden");
+        informacionCaja.style.display = "none";
+        mensajeImagen.style.display = "none";
     } else {
-        alert("El texto debe contener solo letras minúsculas y espacios.");
+        mensajeCaja.classList.add("hidden");
+        informacionCaja.style.display = "block";
+        mensajeImagen.style.display = "block";
     }
 }
 
@@ -86,8 +101,4 @@ function desencriptar(stringDesencriptada) {
 }
 
 
-function validarTexto(texto) {
-    const regex = /^[a-z\s]+$/;
-    return regex.test(texto);
-}
 
