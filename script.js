@@ -5,38 +5,50 @@ const informacionCaja = document.querySelector(".informacion-caja");
 const mensajeImagen = document.querySelector(".mensaje-imagen");
 
 function botonEncriptar() {
-    const textoEncriptado = encriptar(textArea.value);
-    mensaje.value = textoEncriptado;
-    textArea.value = "";
+    const texto = textArea.value;
 
-    // Mostrar el contenido encriptado y ocultar imagen y mensajes si hay texto
-    if (textoEncriptado || window.innerWidth <= 768) { // Verifica si hay texto o si está en una pantalla de tablet
-        mensajeCaja.classList.remove("hidden");
-        informacionCaja.style.display = "none";
-        mensajeImagen.style.display = "none";
-        document.querySelector(".boton-copiar").classList.remove("hidden"); // Muestra el botón de copiar
+    if (validarTexto(texto)) {
+        const textoEncriptado = encriptar(texto);
+        mensaje.value = textoEncriptado;
+        textArea.value = "";
+
+        // Mostrar el contenido encriptado y ocultar imagen y mensajes si hay texto
+        if (textoEncriptado) {
+            mensajeCaja.classList.remove("hidden");
+            informacionCaja.style.display = "none";
+            mensajeImagen.style.display = "none";
+            document.querySelector(".boton-copiar").classList.remove("hidden"); 
+        } else {
+            mensajeCaja.classList.add("hidden");
+            informacionCaja.style.display = "block";
+            mensajeImagen.style.display = "block";
+            document.querySelector(".boton-copiar").classList.add("hidden"); 
+        }
     } else {
-        mensajeCaja.classList.add("hidden");
-        informacionCaja.style.display = "block";
-        mensajeImagen.style.display = "block";
-        document.querySelector(".boton-copiar").classList.add("hidden"); // Asegúrate de ocultar el botón en caso de texto vacío
+        alert("El texto debe contener solo letras minúsculas y espacios.");
     }
 }
 
 function botonDesencriptar() {
-    const textoDesencriptado = desencriptar(textArea.value);
-    mensaje.value = textoDesencriptado;
-    textArea.value = "";
+    const texto = textArea.value;
 
-    // Mostrar el contenido desencriptado y ocultar imagen y mensajes si hay texto
-    if (textoDesencriptado) {
-        mensajeCaja.classList.remove("hidden");
-        informacionCaja.style.display = "none";
-        mensajeImagen.style.display = "none";
+    if (validarTexto(texto)) {
+        const textoDesencriptado = desencriptar(texto);
+        mensaje.value = textoDesencriptado;
+        textArea.value = "";
+
+        // Mostrar el contenido desencriptado y ocultar imagen y mensajes si hay texto
+        if (textoDesencriptado) {
+            mensajeCaja.classList.remove("hidden");
+            informacionCaja.style.display = "none";
+            mensajeImagen.style.display = "none";
+        } else {
+            mensajeCaja.classList.add("hidden");
+            informacionCaja.style.display = "block";
+            mensajeImagen.style.display = "block";
+        }
     } else {
-        mensajeCaja.classList.add("hidden");
-        informacionCaja.style.display = "block";
-        mensajeImagen.style.display = "block";
+        alert("El texto debe contener solo letras minúsculas y espacios.");
     }
 }
 
@@ -72,3 +84,10 @@ function desencriptar(stringDesencriptada) {
     }
     return stringDesencriptada;
 }
+
+
+function validarTexto(texto) {
+    const regex = /^[a-z\s]+$/;
+    return regex.test(texto);
+}
+
