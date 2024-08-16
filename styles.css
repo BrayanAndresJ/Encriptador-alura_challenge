@@ -1,0 +1,341 @@
+* {
+    background: #E5E5E5;
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 100%;
+    width: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+.logo {
+    padding: 10px 0 0 10px;
+    width: 5%;
+    margin-left: 40px;
+    margin-top: 0px;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+    align-items: flex-start;
+    margin-top: 0px;
+  
+}
+
+
+.text-area {
+    height: 307px; /* Mantén la altura que necesitas */
+    width: calc(100% - 10px); /* Ocupa el 100% del ancho menos los 10px del padding (5px de cada lado) */
+    border: none; /* Asegúrate de que no haya borde visible */
+    outline: none; /* Asegúrate de que no haya contorno visible */
+    color: #0A3871;
+    margin-top: 50px; /* Ajusta la distancia desde arriba según sea necesario */
+    margin-left: 100px; /* Elimina margen izquierdo */
+    padding: 5px;
+    text-transform: lowercase;
+    font-size: 30px; /* Ajusta el tamaño de la fuente si es necesario */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+.text-area:focus {
+    border: none;  /* Asegúrate de que el borde siga sin aparecer */
+    outline: none; /* Elimina el contorno al enfocar el área de texto */
+}
+
+
+::placeholder {
+    color: #0A3871;
+}
+
+.mensaje-caja {
+    background: #FFFFFF;
+    width: 300px;
+    height: 580px; /* Ajusta la altura si es necesario */
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea los elementos al inicio */
+    justify-content:center; /* Alinea los elementos al inicio en el eje principal */
+    padding: 25px 35px; /* Ajusta el padding para que quede más arriba */
+    box-sizing: border-box;
+    margin-left: 25px;
+}
+
+.mensaje {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: left;
+    width:100%;
+    height: 10%;
+    background: #FFFFFF;
+    border: none;
+    font-size: 22px;
+    color: gray;
+    padding-top: 0; 
+    margin-top: 25px; /* Añade un margen superior al texto encriptado */
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.mensaje-imagen {
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 5px; /* Reduce el espacio entre la imagen y los textos */
+    background-color: white;
+}
+
+.informacion-caja {
+    text-align: center;
+    width: 100%;
+    margin-top: 0; /* Elimina cualquier margen superior */
+    padding-top: 0; /* Elimina cualquier padding superior */
+    margin-bottom: 125px; /* modificar para centrar imagen */
+    background-color: white;
+}
+
+.informacion-mensaje-1 {
+    font-size: 20px; /* Reduce el tamaño de la fuente si es necesario */
+    margin: 2.5px 5px; /* Añade un margen de 5px a los lados izquierdo y derecho */
+    background: #FFFFFF;
+    font-weight: bold; /* Aplica negrita al texto */
+    color: gray; /* Color del texto */
+    text-shadow: 
+        -1px -1px 0px #000000,  /* Sombra hacia la izquierda y arriba */
+        1px -1px 0px #000000,   /* Sombra hacia la derecha y arriba */
+        -1px 1px 0px #000000,   /* Sombra hacia la izquierda y abajo */
+        1px 1px 0px #000000;    /* Sombra hacia la derecha y abajo */
+}
+
+
+.informacion-mensaje-2 {
+    font-size: 14px; /* Reduce el tamaño de la fuente si es necesario */
+    margin: 20px 0 5px 0; /* Añade un margen superior de 10px */
+    background: #FFFFFF;
+    color: gray;
+}
+
+
+.botones {
+    display: flex;
+    margin-top: 0px;
+    margin-left: 100px;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.boton-desencriptar, .boton-encriptar, .boton-copiar {
+    border-radius: 22.5px;
+    cursor: pointer;
+    height: 55px;
+    width: 235px;
+    font-size: 17.5px;
+    border: 1px solid #0A3871;
+    color: #0A3871;
+}
+
+.boton-desencriptar {
+    background-color: #D8DFE8;
+}
+
+.boton-encriptar {
+    background-color: #0A3871;
+    color: white;
+}
+
+.boton-copiar {
+    background-color: white;
+    margin-bottom: 0px;
+    
+}
+
+.boton-copiar.hidden {
+    display: none;
+}
+
+.info-logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    margin-top: 115px;
+}
+
+.logo-pequeno {
+    width: 15px; /* Tamaño del logo */
+    height: auto; /* Mantén la proporción del logo */
+    margin-right: 2.5px; 
+    margin-left: 100px; 
+}
+
+.informacion {
+    color: #495057;
+    font-size: 10px;
+    margin: 7.5px;
+}
+
+
+/* Media Queries para pantallas de tablets (768x1131) */
+
+@media (max-width: 768px) {
+
+    .main {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+    
+
+    .logo {
+        padding: 10px 0 0 10px;
+        width: 15%;
+        margin-left: 10px; /* Ajusta para alinear con otros elementos */
+        margin-top: 50px;
+    }
+
+    .text-area {
+        width: calc(100% - 20px); /* Ajusta el ancho para dejar espacio para el padding */
+        height: 400px;
+        padding: 0;
+        margin-top: 140px;
+        margin-left: 60px; /* Ajusta el margen izquierdo para alinear con el logo */
+    }
+
+    .botones {
+        width: calc(100% - 20px); /* Ajusta el ancho del contenedor de los botones */
+        
+        margin-top: 0; /* Elimina el margen superior para acercar los botones a la información */
+        display: flex;
+        justify-content: space-between; /* Alinea los botones a los extremos */
+    }
+
+    .boton-encriptar,
+    .boton-desencriptar {
+        width: 320px; /* Ajusta el ancho de los botones para que ocupen el espacio adecuadamente */
+        height: 60px; /* Ajusta la altura de los botones */
+        font-size: 18px; /* Ajusta el tamaño de la fuente dentro del botón */
+        padding: 10px; /* Ajusta el padding para aumentar el tamaño del botón */
+        border-radius: 22.5px; /* Opcional: redondea las esquinas del botón */
+    }
+
+    .boton-desencriptar {
+        margin-left: -56px;
+    }
+
+    .boton-encriptar {
+        margin-left: -40px; /* Ajusta el margen izquierdo del contenedor de botones */
+    }
+
+    .info-logo-container {
+        width: calc(100% - 20px); /* Ajusta el ancho para dejar espacio */
+        padding: 0;
+        margin-top: 10px;
+        margin-left: 70px; /* Ajusta el margen izquierdo para mover el contenedor más a la izquierda */
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center; /* Alinea verticalmente el contenido */
+        justify-content: flex-start; /* Alinea el contenido al inicio (izquierda) */
+    }
+
+    .info-logo-container img.logo-pequeno {
+        margin-left: 0px; /* Elimina el margen entre el logo pequeño y la información */
+    }
+
+    .mensaje-caja{
+        margin-left: 60px;
+        margin-top: 24px;
+        width: 660px;
+        height: 250px;
+        font-size: 40px;
+    }
+
+    .mensaje-imagen {
+        display: none; /* Oculta la imagen del muñeco en pantallas de tablet */
+        
+    }
+
+    .informacion-caja{
+       margin-top: 100px;
+       height: 100px;
+       width: auto; 
+    }
+
+    .informacion-mensaje-1 {
+        text-shadow: none;
+        font-size: 25px;
+
+    }
+    .informacion-mensaje-2{
+        font-size: 20px;
+    }
+
+    .boton-copiar{
+        width: 600px;
+    }
+
+
+}
+
+/* Media Queries para pantallas de 375x933 */
+@media (max-width: 375px) {
+
+    .logo{
+        width: 30%;
+
+    }
+
+    .text-area{
+        margin-top: 100px;
+        height: 300px;
+    }
+    
+    .botones {
+        display: flex;
+        flex-direction: column; /* Coloca los botones uno debajo del otro */
+        align-items: center; /* Centra los botones horizontalmente */
+        width: 100%; /* Ajusta el ancho del contenedor de los botones */
+        margin: 0; /* Elimina cualquier margen adicional */
+    }
+
+    .boton-encriptar{
+        width: 100%; /* Ocupa el ancho total del contenedor */
+        max-width: 320px; /* Establece un ancho máximo si es necesario */
+        margin-bottom: 30px; /* Añade un margen inferior para separar los botones */
+        margin-left: 10px; 
+    }
+
+    .boton-desencriptar {
+        width: 100%; /* Ocupa el ancho total del contenedor */
+        max-width: 320px; /* Establece un ancho máximo si es necesario */
+        margin-bottom: 10px; /* Añade un margen inferior para separar los botones */
+        margin-left: 10px;
+    }
+
+    .boton-copiar{
+        width: 300px;
+    }
+
+    .info-logo-container{
+        margin-left: 40px;
+    }
+    .mensaje-caja{
+        width: 320px;
+        margin-left: 35px;
+    }
+}
+
+
+
+
+
+        
+
+
