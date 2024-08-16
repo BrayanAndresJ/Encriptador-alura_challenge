@@ -285,7 +285,7 @@ body {
 }
 
 /* Media Queries para pantallas de 375x933 */
-@media (max-width: 375px) {
+@media (max-width: 430px) {
 
     .logo{
         width: 30%;
@@ -331,6 +331,9 @@ body {
         margin-left: 35px;
     }
 }
+
+
+
 
 
 
